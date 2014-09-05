@@ -14,10 +14,10 @@
 Route::controller('home', 'HomeController');
 Route::controller('article', 'ArticleController');
 */
-Route::get('/','HomeController@showIndex');
-Route::get('/about','HomeController@showAbout');
+Route::any('/','HomeController@showIndex');
+Route::any('/about','HomeController@showAbout');
 
-Route::get('/articles','ArticleController@indexArticle');
-Route::get('/articles/show','ArticleController@showArticle');
-Route::get('/articles/add','ArticleController@postAddArticle');
-Route::get('/articles/delete','ArticleController@postDeleteArticle');
+Route::any('/articles','ArticleController@indexArticle');
+Route::any('/articles/show','ArticleController@showArticle');
+Route::any('/articles/add','ArticleController@AddArticle');
+Route::any('/articles/delete','ArticleController@DeleteArticle');
