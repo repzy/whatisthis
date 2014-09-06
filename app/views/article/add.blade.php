@@ -5,8 +5,16 @@ Add page
 @stop
 
 @section('content')
-{{ Form::open(array('url' => action('ArticleController@indexArticle'), 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
 
+@if ($errors->all())
+<div class="alert alert-danger">
+    @foreach($errors->all() as $error)
+    <p>{{ $error }}</p>
+    @endforeach
+</div>
+@endif
+
+{{ Form::open(array('url' => action('ArticleController@postAddArticle'), 'method' => 'post', 'role' => 'form', 'class' => 'form-horizontal')) }}
 <div class="form-group">
     {{ Form::label('title', 'Title', array('class' => "col-sm-2 control-label")) }}
     <div class="col-sm-4">

@@ -10,14 +10,21 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-/*
-Route::controller('home', 'HomeController');
-Route::controller('article', 'ArticleController');
-*/
-Route::any('/','HomeController@showIndex');
-Route::any('/about','HomeController@showAbout');
 
-Route::any('/articles','ArticleController@indexArticle');
-Route::any('/articles/show','ArticleController@showArticle');
-Route::any('/articles/add','ArticleController@AddArticle');
-Route::any('/articles/delete','ArticleController@DeleteArticle');
+Route::any('/', array('as' => 'home', function()
+{
+    return View::make('home/index');
+}));
+Route::any('/about', array('as' => 'about', function()
+{
+    return View::make('home/about');
+}));
+
+Route::any('/article', array('as' => 'indexArticle', 'uses' => 'ArticleController@indexArticle'));
+Route::any('/article/show/{id}', array('as' => 'showArticle', 'uses' => 'ArticleController@showArticle'));
+Route::get('/article/add', array('as' => 'addArticle', function()
+{ return View::make('article/add'); }));
+Route::post('/article/add', array('as' => 'postAddArticle', 'uses' => 'ArticleController@postAddArticle'));
+Route::any('/article/delete/{id}', array('as' => 'deleteArticle', 'uses' => 'ArticleController@deleteArticle'));
+Route::get('/article/edit/{id}', array('as' => 'editArticle', 'uses' => 'ArticleController@editArticle'));
+Route::post('/article/edit/{id}', array('as' => 'postEditArticle', 'uses' => 'ArticleController@postEditArticle'));

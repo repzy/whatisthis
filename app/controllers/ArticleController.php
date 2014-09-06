@@ -9,23 +9,59 @@
 class ArticleController extends BaseController
 {
     public function indexArticle()
-    {   $data = Input::all();
-        $vyy = var_dump($data);
-        return View::make('articles/index', array('var'=>'jjj'));
+    {
+        $posts = Post::all();
+        return View::make('article/index', array('posts'=>$posts));
     }
 
-    public function showArticle()
+    public function showArticle($id)
     {
-        return View::make('articles/show');
+        $post = Post::findOrFail($id);
+        return View::make('article/show', array('post'=>$post));
     }
 
-    public function AddArticle()
+    public function postAddArticle()
     {
-        return View::make('articles/add');
+        $input = Input::all();
+        var_dump($input);
+        $validator = Validator::make($input, Post::$rules);
+        if ($validator->fails())
+        {
+            return Redirect::back()
+            ->withInput()
+            ->withErrors($validator);
+        }
+
+        $post = new Post;
+        $post->title = $input['Title'];
+        $post->text = $input['Text'];
+        $post->save();
+
+        return Redirect::route('indexArticle');
     }
 
-    public function DeleteArticle()
+    public function deleteArticle($id)
     {
-        return View::make('articles/delete');
+        $post = Post::find($id);
+        $post->delete();
+        return Redirect::route('indexArticle');
+    }
+
+    public function editArticle($id)
+    {
+        $post = Post::findOrFail($id);
+        return View::make('article/edit', array('post'=>$post));
+    }
+
+    public function postEditArticle($id)
+    {
+        $input = Input::all();
+
+        $post = Post::findOrFail($id);
+        $post->title = $input['Title'];
+        $post->text = $input['Text'];
+        $post->save();
+
+        return Redirect::route('indexArticle');
     }
 }
