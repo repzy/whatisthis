@@ -1,0 +1,61 @@
+body{
+    background-color: #E5FBFB;
+}
+
+#header{
+    padding-bottom: 30px;
+}
+
+.post{
+    float: none;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 45%;
+}
+
+.post-header,
+.post-title a,
+.post-title a:hover
+{
+    text-decoration: none;
+    color: #909090;
+    font-size: 45px;
+    line-height: 1;
+}
+
+.post-date{
+    font-size: 12px;
+    text-align: right;
+}
+
+.post-content{
+    background-color: #ffffff;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid rgba(228, 228, 228, 0.73);
+    border-radius: 6px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.post-small{
+    height: 170px;
+    overflow: hidden;
+}
+
+.post-small-text{
+    height: 100%;
+}
+
+.post-button{
+    margin-top: 10px;
+    text-align: right;
+}
+

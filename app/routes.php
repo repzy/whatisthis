@@ -28,3 +28,4 @@ Route::post('/article/add', array('as' => 'postAddArticle', 'uses' => 'ArticleCo
 Route::any('/article/delete/{id}', array('as' => 'deleteArticle', 'uses' => 'ArticleController@deleteArticle'));
 Route::get('/article/edit/{id}', array('as' => 'editArticle', 'uses' => 'ArticleController@editArticle'));
 Route::post('/article/edit/{id}', array('as' => 'postEditArticle', 'uses' => 'ArticleController@postEditArticle'));
+Route::post('/article/comment/add/{id}', array('as' => 'addComment', 'uses' => 'CommentController@addComment'));

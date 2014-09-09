@@ -17,13 +17,13 @@ class ArticleController extends BaseController
     public function showArticle($id)
     {
         $post = Post::findOrFail($id);
-        return View::make('article/show', array('post'=>$post));
+        $comments = Post::find($id)->comments;
+        return View::make('article/show', array('post'=>$post, 'comments'=>$comments));
     }
 
     public function postAddArticle()
     {
         $input = Input::all();
-        var_dump($input);
         $validator = Validator::make($input, Post::$rules);
         if ($validator->fails())
         {

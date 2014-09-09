@@ -4,6 +4,10 @@
 Edit page
 @stop
 
+@section('header')
+@include('header')
+@stop
+
 @section('content')
 @if ($errors->all())
 <div class="alert alert-danger">

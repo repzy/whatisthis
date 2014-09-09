@@ -6,16 +6,13 @@
 
     <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap-theme.min.css')}}">
+    <link rel="stylesheet" href="{{asset('style.css')}}">
+
 </head>
 
 <body>
     <div id="header">
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/article">Articles</a></li>
-            <li><a href="/article/add">ArticlesAdd</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
+        @yield('header')
     </div>
 
     <div id="content">
