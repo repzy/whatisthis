@@ -36,6 +36,5 @@ Add page
         <button type="submit" class="btn btn-default">Create</button>
     </div>
 </div>
-
 {{ Form::close() }}
 @stop

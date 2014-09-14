@@ -6,7 +6,8 @@
 
     <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('bootstrap/dist/css/bootstrap-theme.min.css')}}">
-    <link rel="stylesheet" href="{{asset('style.css')}}">
+    <link rel="stylesheet" href="{{asset('bootstrap/dist/css/signin.css')}}">
+    <link rel="stylesheet" href="{{asset('bootstrap/dist/css/style.css')}}">
 
 </head>
 

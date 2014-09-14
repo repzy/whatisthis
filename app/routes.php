@@ -29,3 +29,13 @@ Route::any('/article/delete/{id}', array('as' => 'deleteArticle', 'uses' => 'Art
 Route::get('/article/edit/{id}', array('as' => 'editArticle', 'uses' => 'ArticleController@editArticle'));
 Route::post('/article/edit/{id}', array('as' => 'postEditArticle', 'uses' => 'ArticleController@postEditArticle'));
 Route::post('/article/comment/add/{id}', array('as' => 'addComment', 'uses' => 'CommentController@addComment'));
+
+Route::any('/sign', array('as'=>'Login', function()
+{
+    return View::make('user/sign');
+}));
+
+Route::any('/user/signup', array('as' => 'signup', 'uses' => 'UsersController@Register'));
+Route::any('/user/signin', array('as' => 'signin', 'uses' => 'UsersController@Login'));
+Route::any('/user/signout', array('as' => 'signout', 'uses' => 'UsersController@Logout'));
+
